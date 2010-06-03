@@ -44,6 +44,12 @@ Expectations do
     validation.valid?(instance)
   end
 
+  expect true do
+    validation = Validatable::ValidatesNumericalityOf.new stub_everything, :some_negative_decimal
+    instance = stub(:some_negative_decimal => -1.23)
+    validation.valid?(instance)
+  end
+
   expect false do
     validation = Validatable::ValidatesNumericalityOf.new stub_everything, :some_decimal, :only_integer => true
     instance = stub(:some_decimal => 1.23)

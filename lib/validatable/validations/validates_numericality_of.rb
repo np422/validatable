@@ -8,7 +8,7 @@ module Validatable
       return true if allow_blank && value.blank?
       
       value = value.to_s
-      regex = self.only_integer ? /\A[+-]?\d+\Z/ : /^\d*\.{0,1}\d+$/
+      regex = self.only_integer ? /\A[+-]?\d+\Z/ : /\A[+-]?\d*\.{0,1}\d+$/
       not (value =~ regex).nil?
     end
     
