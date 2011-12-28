@@ -286,12 +286,12 @@ module Validatable
     #     * map - A hash that maps attributes of the child to attributes of the parent.
     #     * if - A block that when executed must return true of the validation will not occur.
     def include_errors_from(attribute_to_validate, options = {})
-      children_to_validate << ChildValidation.new(attribute_to_validate, options[:map] || {}, options[:if] || lambda { true })
+      children_to_validate << ChildValidation.new(attribute_to_validate, options[:map] || {}, options[:if] || lambda { |arg| true })
     end
     
     def include_validations_for(attribute_to_validate, options = {}) #:nodoc:
       puts "include_validations_for is deprecated; use include_errors_from instead"
-      children_to_validate << ChildValidation.new(attribute_to_validate, options[:map] || {}, options[:if] || lambda { true })
+      children_to_validate << ChildValidation.new(attribute_to_validate, options[:map] || {}, options[:if] || lambda { |arg| true })
     end
     
     # call-seq: before_validation(&block)

@@ -3,7 +3,6 @@ class Object #:nodoc:
   end
   include InstanceExecHelper
   def instance_eval_with_params(*args, &block)
-    old_critical, Thread.critical = Thread.critical, true
     n = 0
     n += 1 while respond_to?(mname="__instance_exec#{n}")
     InstanceExecHelper.module_eval{ define_method(mname, &block) }
