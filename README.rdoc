@@ -4,6 +4,8 @@ Validatable is a library for adding validations.
 
 Created by Jay Fields, updated by John Nunemaker
 
+Very quick port to ruby 1.9 by Niklas Paulsson
+
 == Installation
  
  $ gem install jnunemaker-validatable -s http://gemcutter.org
